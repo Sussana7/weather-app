@@ -1,0 +1,45 @@
+.app {
+  font-family: --font-dm-sans;
+  font-weight: 400;
+  min-height: 100vh;
+  padding: var(--spacing-lg);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--spacing-xl);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.units-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-md);
+  background-color: var(--color-card-secondary);
+  color: var(--color-text-primary);
+  border: none;
+  cursor: pointer;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+
+}
+
+.main-title {
+  text-align: center;
+  font-family: --font-bricolage;
+  font-weight: 600;
+}
+
+
