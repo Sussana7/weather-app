@@ -1,21 +1,25 @@
 .app {
-  font-family: --font-dm-sans;
+  max-width: 1216px;
+  margin: 0 auto;
+  font-family: "DM Sans", system-ui, -apple-system, sans-serif;
   font-weight: 400;
   min-height: 100vh;
-  padding: var(--spacing-lg);
+  padding: 1.5rem;
 }
 
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: var(--spacing-xl);
+  margin-bottom: 2rem;
 }
 
-.logo {
+.logo img {
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  width: 150px;
+  height: auto;
 }
 
 .units-btn {
@@ -23,23 +27,104 @@
   align-items: center;
   gap: 0.5rem;
   padding: 0.5rem 1rem;
-  border-radius: var(--radius-md);
-  background-color: var(--color-card-secondary);
-  color: var(--color-text-primary);
+  border-radius: 0.5rem;
+  background-color: hsl(243, 23%, 24%);
+  color: hsl(0, 0%, 100%);
   border: none;
   cursor: pointer;
 }
 
 main {
   display: flex;
+  flex-direction: column;
   justify-content: center;
-
+  align-items: center;
+  gap: 2rem;
 }
 
 .main-title {
   text-align: center;
-  font-family: --font-bricolage;
+  font-family: "Bricolage Grotesque", sans-serif;
+  font-optical-sizing: auto;
   font-weight: 600;
+  font-style: normal;
+  font-variation-settings: "width" 100;
+  margin: 0;
 }
 
+.units-container {
+  position: relative;
+}
 
+.units-dropdown {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background: hsl(243, 27%, 20%);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 0.5rem;
+  padding: 1rem;
+  min-width: 200px;
+  margin-top: 0.5rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.units-dropdown h3 {
+  margin: 0 0 1rem 0;
+  font-size: 1.125rem;
+  color: hsl(0, 0%, 100%);
+  font-family: "DM Sans", system-ui, -apple-system, sans-serif;
+}
+
+.units-dropdown p {
+  margin: 0.5rem 0;
+  color: hsl(240, 6%, 70%);
+  font-size: 0.889rem;
+  font-family: "DM Sans", system-ui, -apple-system, sans-serif;
+}
+
+/* SEARCHSECTION STYLES */
+.search-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.search-container {
+  display: flex;
+  align-items: center;
+  background-color: hsl(243, 27%, 20%);
+  border-radius: 0.5rem;
+  padding: 0.75rem;
+  padding-right: 8rem;
+  flex: 1;
+}
+
+.search-container img {
+  width: 18px;
+  height: 18px;
+  margin-right: 0.75rem;
+  opacity: 0.7;
+}
+
+.search-container input {
+  border: none;
+  outline: none;
+  background: transparent;
+  color: hsl(0, 0%, 100%);
+  flex: 1;
+  font-size: 1rem;
+}
+
+.search-container input::placeholder {
+  color: hsl(240, 6%, 70%);
+}
+
+.search-btn {
+  background-color: hsl(233, 67%, 56%);
+  color: hsl(0, 0%, 100%);
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  cursor: pointer;
+}
