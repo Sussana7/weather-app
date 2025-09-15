@@ -52,6 +52,7 @@ main {
   margin: 0;
 }
 
+/* UNIT DROPDOWN STYLES  */
 .units-container {
   position: relative;
 }
@@ -63,7 +64,7 @@ main {
   background: hsl(243, 27%, 20%);
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 0.5rem;
-  padding: 1rem;
+  padding: 0.5rem;
   min-width: 200px;
   margin-top: 0.5rem;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
@@ -76,11 +77,52 @@ main {
   font-family: "DM Sans", system-ui, -apple-system, sans-serif;
 }
 
-.units-dropdown p {
-  margin: 0.5rem 0;
+.imperial-switch {
+  color: hsl(0, 0%, 100%);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0.6rem 0;
+  width: 100%;
+  text-align: left;
+}
+
+.unit-category {
   color: hsl(240, 6%, 70%);
-  font-size: 0.889rem;
-  font-family: "DM Sans", system-ui, -apple-system, sans-serif;
+  font-size: 0.8rem;
+}
+
+.unit-option {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: hsl(0, 0%, 100%);
+  background: transparent;
+  cursor: pointer;
+  padding: 0.4rem 1rem 0.1rem 0rem;
+  width: 100%;
+  border-radius: 4px;
+  margin: 0.1rem 0;
+}
+
+.unit-option.selected {
+  background: hsl(243, 23%, 30%);
+}
+
+.unit-option:hover {
+  background: hsl(243, 23%, 30%);
+  padding: 0.4rem;
+}
+
+.checkmark {
+  margin-left: 1rem; /* The space between text and checkmark */
+}
+
+.separator {
+  height: 0.1px;
+  background: hsl(240, 6%, 70%);
+  margin: 0.5rem 0;
+  opacity: 0.5;
 }
 
 /* SEARCHSECTION STYLES */
