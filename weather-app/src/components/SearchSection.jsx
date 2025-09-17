@@ -1,4 +1,4 @@
-function App() {
+function SearchSection() {
     return (
         <main>
             <div className="search-wrapper">
@@ -12,4 +12,4 @@ function App() {
     );
 }
 
-export default App;
+export default SearchSection;

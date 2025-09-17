@@ -170,3 +170,159 @@ main {
   padding: 0.75rem 1.5rem;
   cursor: pointer;
 }
+
+/* WEATHER DISPLAY STYLES */
+
+.weather-display-container {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+
+.metric-card {
+  background: hsl(243, 27%, 20%);
+  border-radius: 12px;
+  border: 1px solid hsl(243, 23%, 30%);
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.metric-label {
+  color: hsl(240, 6%, 70%);
+  font-size: 0.9rem;
+}
+
+.metric-value {
+  color: hsl(0, 0%, 100%);
+  font-size: 1.2rem;
+  font-weight: 400;
+}
+
+.daily-forecast {
+  margin-top: 2rem;
+}
+
+.forecast-title {
+  color: hsl(0, 0%, 100%);
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  font-weight: 500;
+}
+
+.daily-forecast-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 0.5rem;
+}
+
+.daily-forecast-card {
+  background: hsl(243, 27%, 20%);
+  border-radius: 12px;
+  border: 1px solid hsl(243, 23%, 30%);
+  padding: 1rem 0.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.day {
+  color: hsl(250, 6%, 84%);
+  font-size: 0.9rem;
+}
+
+.daily-forecast-card img {
+  width: 32px;
+  height: 32px;
+}
+
+.temperature-range {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.temp-high {
+  color: hsl(250, 6%, 84%);
+  font-weight: 500;
+}
+
+.temp-low {
+  color: hsl(240, 6%, 70%);
+  font-size: 0.9rem;
+}
+
+.right-section {
+  background: hsl(243, 27%, 20%);
+  border-radius: 16px;
+  padding: 1.5rem;
+}
+
+.hourly-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.hourly-title {
+  color: hsl(0, 0%, 100%);
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin: 0;
+}
+
+.day-dropdown {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: hsl(243, 27%, 25%);
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  color: hsl(250, 6%, 84%);
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.hourly-forecast-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.hourly-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.75rem;
+  background: hsl(243, 27%, 25%);
+  border: 1px solid hsl(243, 23%, 30%);
+  border-radius: 8px;
+}
+
+.hourly-item img {
+  width: 24px;
+  height: 24px;
+}
+
+.hour {
+  color: hsl(250, 6%, 84%);
+  font-size: 0.9rem;
+  flex: 1;
+}
+
+.temp {
+  color: hsl(0, 0%, 100%);
+  font-weight: 400;
+}
