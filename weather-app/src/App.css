@@ -5,6 +5,7 @@
   font-weight: 400;
   min-height: 100vh;
   padding: 1.5rem;
+  box-sizing: border-box;
 }
 
 .header {
@@ -325,4 +326,44 @@ main {
 .temp {
   color: hsl(0, 0%, 100%);
   font-weight: 400;
+}
+
+/* ERROR STATE STYLES */
+
+.error-page h1 {
+  color: hsl(0, 0%, 100%);
+  font-size: 2.5rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+.error-page p {
+  color: hsl(240, 6%, 70%);
+  font-size: 1.1rem;
+  line-height: 1.6;
+  line-break: normal;
+  margin-bottom: 1.8rem;
+  max-width: 400px;
+}
+
+.error-page button {
+  background: hsl(243, 23%, 30%);
+  border: 2px solid hsl(243, 23%, 24%);
+  color: hsl(250, 6%, 84%);
+  padding: 0.8rem 2rem;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+/* NO-RESULT-STATE STYLES */
+
+.no-result-state h1 {
+  color: hsl(0, 0%, 100%);
 }
