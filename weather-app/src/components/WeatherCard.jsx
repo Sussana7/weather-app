@@ -3,7 +3,11 @@ function WeatherCard() {
     <div className="weather-display-container">
       <div className="left-section">
         <img
-          src="/assets/images/bg-today-large.svg"
+          src={
+            window.innerWidth <= 480
+              ? "/assets/images/bg-today-small.svg"
+              : "/assets/images/bg-today-large.svg"
+          }
           alt="today background"
         />
         <div className="metrics-grid">
@@ -38,10 +42,7 @@ function WeatherCard() {
             </div>
             <div className="daily-forecast-card">
               <span className="day">Wed</span>
-              <img
-                src="/assets/images/icon-drizzle.webp"
-                alt="drizzle icon"
-              />
+              <img src="/assets/images/icon-drizzle.webp" alt="drizzle icon" />
               <div className="temperature-range">
                 <span className="temp-high">21°</span>
                 <span className="temp-low">15°</span>
@@ -68,10 +69,7 @@ function WeatherCard() {
             </div>
             <div className="daily-forecast-card">
               <span className="day">Sat</span>
-              <img
-                src="/assets/images/icon-storm.webp"
-                alt="storm icon"
-              />
+              <img src="/assets/images/icon-storm.webp" alt="storm icon" />
               <div className="temperature-range">
                 <span className="temp-high">21°</span>
                 <span className="temp-low">15°</span>
@@ -105,10 +103,7 @@ function WeatherCard() {
 
         <div className="hourly-forecast-list">
           <div className="hourly-item">
-            <img
-              src="/assets/images/icon-overcast.webp"
-              alt="overcast icon"
-            />
+            <img src="/assets/images/icon-overcast.webp" alt="overcast icon" />
             <span className="hour">3 PM</span>
             <span className="temp">20°</span>
           </div>
@@ -126,10 +121,7 @@ function WeatherCard() {
             <span className="temp">20°</span>
           </div>
           <div className="hourly-item">
-            <img
-              src="/assets/images/icon-overcast.webp"
-              alt="overcast icon"
-            />
+            <img src="/assets/images/icon-overcast.webp" alt="overcast icon" />
             <span className="hour">6 PM</span>
             <span className="temp">19°</span>
           </div>
@@ -149,10 +141,7 @@ function WeatherCard() {
             <span className="temp">17°</span>
           </div>
           <div className="hourly-item">
-            <img
-              src="/assets/images/icon-overcast.webp"
-              alt="overcast icon"
-            />
+            <img src="/assets/images/icon-overcast.webp" alt="overcast icon" />
             <span className="hour">10 PM</span>
             <span className="temp">17°</span>
           </div>
