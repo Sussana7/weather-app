@@ -1,11 +1,11 @@
-import "./App.css";
-import "./styles/reset.css";
-import Header from "./components/Header";
-import SearchSection from "./components/SearchSection";
-import WeatherCard from "./components/WeatherCard";
+import './App.css';
+import './styles/reset.css';
+import Header from './components/Header';
+import SearchSection from './components/SearchSection';
+import WeatherCard from './components/WeatherCard';
 
-import { fetchWeatherApi } from "openmeteo";
-import { useEffect, useState } from "react";
+import { fetchWeatherApi } from 'openmeteo';
+import { useEffect, useState } from 'react';
 
 function App() {
   const [weatherData, setWeatherData] = useState(null);
@@ -13,22 +13,27 @@ function App() {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    console.log("Weather data state updated:", weatherData);
-  }, [weatherData]);
-
-  useEffect(() => {
     const fetchWeatherData = async () => {
       try {
         setLoading(true);
         setError(null);
 
+        // STEP 3
+
+        // modify this to what the code below it
         const params = {
           latitude: 52.52,
           longitude: 13.41,
-          hourly: "temperature_2m",
+          hourly: 'temperature_2m',
         };
 
-        const url = "https://api.open-meteo.com/v1/forecast";
+        //  const params = {
+        //   latitude: lat,
+        //   longitude: long,
+        //   hourly: 'temperature_2m',
+        // };
+
+        const url = 'https://api.open-meteo.com/v1/forecast';
         const responses = await fetchWeatherApi(url, params);
 
         const response = responses[0];
@@ -37,12 +42,6 @@ function App() {
         const longitude = response.longitude();
         const elevation = response.elevation();
         const utcOffsetSeconds = response.utcOffsetSeconds();
-
-        console.log(
-          `\nCoordinates: ${latitude}°N ${longitude}°E`,
-          `\nElevation: ${elevation}m asl`,
-          `\nTimezone difference to GMT+0: ${utcOffsetSeconds}s`
-        );
 
         const hourly = response.hourly();
 
@@ -68,26 +67,41 @@ function App() {
           },
         };
 
-        console.log("\nHourly data", processedWeatherData.hourly);
-        console.log(processedWeatherData)
+        console.log(processedWeatherData);
         setWeatherData(processedWeatherData);
       } catch (err) {
-        console.error("Error fetching weather data:", err);
-        setError("Failed to fetch weather data");
+        console.error('Error fetching weather data:', err);
+        setError('Failed to fetch weather data');
       } finally {
         setLoading(false);
       }
     };
 
+    // STEP 1.
+    // uncomment this code
+
+    // navigator.geolocation.getCurrentPosition(
+    //   (pos) => {
+    //     const { latitude, longitude } = pos.coords;
+    //     fetchWeatherData(latitude, longitude);
+    //   },
+    //   (error) => {
+    //     console.error('Geolocation error', error.message);
+    //     fetchWeatherData(52.52, 13.41);
+    //   }
+    // );
+
+    // STEP 2.
+    // comment this line out
     fetchWeatherData();
-  }, []); 
+  }, []);
 
   if (loading) {
     return (
-      <div className="app">
+      <div className='app'>
         <Header />
-        <main className="main">
-          <h2 className="main-title">Loading weather data...</h2>
+        <main className='main'>
+          <h2 className='main-title'>Loading weather data...</h2>
         </main>
       </div>
     );
@@ -95,7 +109,7 @@ function App() {
 
   if (error) {
     return (
-      <div className="app">
+      <div className='app'>
         <Header />
         <ErrorState />
       </div>
@@ -103,10 +117,10 @@ function App() {
   }
 
   return (
-    <div className="app">
+    <div className='app'>
       <Header />
-      <main className="main">
-        <h2 className="main-title">How's the sky looking today?</h2>
+      <main className='main'>
+        <h2 className='main-title'>How's the sky looking today?</h2>
         <SearchSection />
         <WeatherCard weatherData={weatherData} />
       </main>

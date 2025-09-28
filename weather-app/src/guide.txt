@@ -1,0 +1,67 @@
+Take your time to read this , if you don't understand anything let me know, There might be mistakes because i couldn't find time to read through. 
+
+
+
+
+1. Per the requirements of the app, you are supposed to get the user's location by default and fetch the weather data automatically without waiting for the user to first search for a place.
+
+To get that there's a navigator function the web browser provides that can be used 
+
+To get this data, you first have to wait for the app to render and then we get the lat and long from the user.Meaning we have to do this in a useEffect
+
+Sometimes when you go to some apps you'll see that you will be asked to allow the site to get your location and then you can either choose yes or no .
+
+That is the navigator function working.
+
+To do that we have to modify the fetch weather data function do accept some lat and long , if the user accepts the request and allows us to get his location then we use it . if not we use a default one for the mean time until he searches for a place.
+
+App.jsx
+
+
+
+a. STEP 1 uncomment the code there, that is because now we are fetching the data based on the geolocation.I think you'll get why we have to call it in the navigator.geolocation function now .
+
+b. STEP 2 comment that line
+
+
+ STEP 3
+c.const fetchWeatherData = async (lat, long) => 
+Modify the function to accept the lat and long like this in the useEffect.
+
+2.Now the response data contains the actual api data you have to use to now render the app . its the same thing that you print and see in the console
+
+Based on the ui , you are supposed to render the weather data for the next 7 days, starting from the day you made the weather request.
+
+Look at the data in the console when you enlarge it you will see time, click the dropdown you will see the days in that array .
+
+
+Looks like what is here 
+Thu Oct 02 2025 03:00:00 GMT+0000 (Greenwich Mean Time)
+
+Its very plenty because you are getting the weather data for the different hours we have during the day.
+
+in your weather card component you are passing a prop but you are not receiving it 
+
+Find that step in the weatherCard component 
+
+STEP 5
+
+Now the weather data is returned from the API is a bit messy and it's difficult to work it so i created a custom hook in a folder i created(Name of folder is Utils ) 
+
+STEP 6, STEP 7 and 8 👆 (in weather card component)
+
+You can check it out if you want.
+
+If you don't understand it don't worry about it. 
+
+3. This grouped data gives you a very clean data with the data , the highest temperature , lowest temperature and the hourly temperature for the 24 hours we have in the day.
+
+
+
+4.Now its time to remove the dummy data and render the actual data in the component 
+
+Every temperature will need its own icon so we have to create an array which has all the temperatures and their specific icons so that when we are mapping over the array to see the day we can check that temperature and render the icon that matches it  
+
+check step 10 and 11 for that.
+
+Look through the code to find step 12 and 13 and do them you'll now see the actual data being rendered in the app
