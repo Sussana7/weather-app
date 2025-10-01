@@ -3,7 +3,7 @@ import Header from "./Header";
 function ErrorState() {
   return (
     <div className="error-page">
-      <Header />
+      {/* <Header /> */}
       <div>
         <main>
           <img src="/assets/images/icon-error.svg" alt="error-icon" />
@@ -14,7 +14,7 @@ function ErrorState() {
           </p>
           <button>
             <img
-              src="weather-app/public/assets/images/icon-retry.svg"
+              src="/assets/images/icon-retry.svg"
               alt="retry icon"
             />
             Retry

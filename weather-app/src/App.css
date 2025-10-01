@@ -268,6 +268,10 @@ main {
   background: hsl(243, 27%, 20%);
   border-radius: 16px;
   padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-self: start; 
+  max-height: 550px; 
 }
 
 .hourly-nav {
@@ -275,6 +279,7 @@ main {
   justify-content: space-between;
   align-items: center;
   margin-bottom: 1.5rem;
+  flex-shrink: 0;
 }
 
 .hourly-title {
@@ -300,6 +305,9 @@ main {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+  overflow-y: auto;
+  overflow-x: hidden;
+  flex: 1;
 }
 
 .hourly-item {
@@ -326,6 +334,24 @@ main {
 .temp {
   color: hsl(0, 0%, 100%);
   font-weight: 400;
+}
+
+/* Scrollbar styling */
+.hourly-forecast-list::-webkit-scrollbar {
+  width: 6px;
+}
+
+.hourly-forecast-list::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.hourly-forecast-list::-webkit-scrollbar-thumb {
+  background: hsl(243, 23%, 35%);
+  border-radius: 3px;
+}
+
+.hourly-forecast-list::-webkit-scrollbar-thumb:hover {
+  background: hsl(243, 23%, 40%);
 }
 
 /* ERROR STATE STYLES */

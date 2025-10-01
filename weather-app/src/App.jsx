@@ -1,11 +1,12 @@
-import './App.css';
-import './styles/reset.css';
-import Header from './components/Header';
-import SearchSection from './components/SearchSection';
-import WeatherCard from './components/WeatherCard';
+import "./App.css";
+import "./styles/reset.css";
+import Header from "./components/Header";
+import SearchSection from "./components/SearchSection";
+import WeatherCard from "./components/WeatherCard";
 
-import { fetchWeatherApi } from 'openmeteo';
-import { useEffect, useState } from 'react';
+import { fetchWeatherApi } from "openmeteo";
+import { useEffect, useState } from "react";
+import ErrorState from "./components/ErrorState";
 
 function App() {
   const [weatherData, setWeatherData] = useState(null);
@@ -13,7 +14,7 @@ function App() {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    const fetchWeatherData = async () => {
+    const fetchWeatherData = async (latitude, longitude) => {
       try {
         setLoading(true);
         setError(null);
@@ -21,25 +22,20 @@ function App() {
         // STEP 3
 
         // modify this to what the code below it
+
         const params = {
-          latitude: 52.52,
-          longitude: 13.41,
-          hourly: 'temperature_2m',
+          latitude: latitude,
+          longitude: longitude,
+          hourly: "temperature_2m",
         };
 
-        //  const params = {
-        //   latitude: lat,
-        //   longitude: long,
-        //   hourly: 'temperature_2m',
-        // };
-
-        const url = 'https://api.open-meteo.com/v1/forecast';
+        const url = "https://api.open-meteo.com/v1/forecast";
         const responses = await fetchWeatherApi(url, params);
 
         const response = responses[0];
 
-        const latitude = response.latitude();
-        const longitude = response.longitude();
+        // const latitude = response.latitude();
+        // const longitude = response.longitude();
         const elevation = response.elevation();
         const utcOffsetSeconds = response.utcOffsetSeconds();
 
@@ -70,8 +66,8 @@ function App() {
         console.log(processedWeatherData);
         setWeatherData(processedWeatherData);
       } catch (err) {
-        console.error('Error fetching weather data:', err);
-        setError('Failed to fetch weather data');
+        console.error("Error fetching weather data:", err);
+        setError("Failed to fetch weather data");
       } finally {
         setLoading(false);
       }
@@ -80,28 +76,28 @@ function App() {
     // STEP 1.
     // uncomment this code
 
-    // navigator.geolocation.getCurrentPosition(
-    //   (pos) => {
-    //     const { latitude, longitude } = pos.coords;
-    //     fetchWeatherData(latitude, longitude);
-    //   },
-    //   (error) => {
-    //     console.error('Geolocation error', error.message);
-    //     fetchWeatherData(52.52, 13.41);
-    //   }
-    // );
+    navigator.geolocation.getCurrentPosition(
+      (pos) => {
+        const { latitude, longitude } = pos.coords;
+        fetchWeatherData(latitude, longitude);
+      },
+      (error) => {
+        console.error("Geolocation error", error.message);
+        fetchWeatherData(52.52, 13.41);
+      }
+    );
 
     // STEP 2.
     // comment this line out
-    fetchWeatherData();
+    // fetchWeatherData();
   }, []);
 
   if (loading) {
     return (
-      <div className='app'>
+      <div className="app">
         <Header />
-        <main className='main'>
-          <h2 className='main-title'>Loading weather data...</h2>
+        <main className="main">
+          <h2 className="main-title">Loading weather data...</h2>
         </main>
       </div>
     );
@@ -109,7 +105,7 @@ function App() {
 
   if (error) {
     return (
-      <div className='app'>
+      <div className="app">
         <Header />
         <ErrorState />
       </div>
@@ -117,10 +113,10 @@ function App() {
   }
 
   return (
-    <div className='app'>
+    <div className="app">
       <Header />
-      <main className='main'>
-        <h2 className='main-title'>How's the sky looking today?</h2>
+      <main className="main">
+        <h2 className="main-title">How's the sky looking today?</h2>
         <SearchSection />
         <WeatherCard weatherData={weatherData} />
       </main>
